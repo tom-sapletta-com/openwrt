@@ -1,4 +1,4 @@
-# openwrt
+# [openwrt - how to install openwrt on bare metal](https://tom-sapletta-com.github.io/openwrt/)
 how to install openwrt on bare metal
 
 
