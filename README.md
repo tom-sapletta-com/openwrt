@@ -34,3 +34,45 @@ login
 clone partition from USB device
 + [[OpenWrt Wiki] Command-line interpreter](https://openwrt.org/docs/guide-user/base-system/user.beginner.cli)
 + [How to use DD to clone a partition off a disk image? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/73125/how-to-use-dd-to-clone-a-partition-off-a-disk-image)
+
+
+## resize partition
+[[HOWTO] Resizing root partition on x86 - Installing and Using OpenWrt - OpenWrt Forum](https://forum.openwrt.org/t/howto-resizing-root-partition-on-x86/140631)
+
+```sh
+BOOT="$(sed -n -e "/\s\/boot\s.*$/{s///p;q}" /etc/mtab)"
+DISK="${BOOT%%[0-9]*}"
+PART="$((${BOOT##*[^0-9]}+1))"
+ROOT="${DISK}${PART}"
+LOOP="$(losetup -f)"
+losetup ${LOOP} ${ROOT}
+fsck.ext4 -y -f ${LOOP}
+resize2fs ${LOOP}
+reboot
+```
+
+script: 
+resize.sh
+
+```sh
+#!/bin/sh
+echo -n "$(sed -n -e "/\s\/boot\s.*$/{s///p;q}" /etc/mtab)" > bootdisk.txt
+BOOT=$(cat bootdisk.txt)
+echo $BOOT
+
+DISK=${BOOT%%[0-9]*}
+PART=$((${BOOT##*[^0-9]}+1))
+echo -n "${DISK}" > rootdisk.txt
+echo -n "${PART}" >> rootdisk.txt
+ROOT=$(cat rootdisk.txt)
+echo $ROOT
+
+LOOP=$(losetup -f)
+echo ${LOOP} ${ROOT}
+
+losetup ${LOOP} ${ROOT}
+fsck.ext4 -y -f ${LOOP}
+resize2fs ${LOOP}
+reboot
+```
+
