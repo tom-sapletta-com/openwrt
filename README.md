@@ -37,6 +37,10 @@ clone partition from USB device
 
 
 ## resize partition
+
+Parted
++ [8 Linux 'Parted' Commands to Create, Resize and Rescue Disk Partitions](https://www.tecmint.com/parted-command-to-create-resize-rescue-linux-disk-partitions/)
+
 [[HOWTO] Resizing root partition on x86 - Installing and Using OpenWrt - OpenWrt Forum](https://forum.openwrt.org/t/howto-resizing-root-partition-on-x86/140631)
 
 ```sh
