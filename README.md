@@ -85,7 +85,7 @@ reboot
 + [LXD - success on OpenWRT (privileged containers) - but problems with unprivileged - LXD - Linux Containers Forum](https://discuss.linuxcontainers.org/t/lxd-success-on-openwrt-privileged-containers-but-problems-with-unprivileged/1729/6)
 + [cvmiller/openwrt-lxd: Directions and script for running OpenWrt on LXD](https://github.com/cvmiller/openwrt-lxd)
 + [Installing OpenWRT In Proxmox LXC – Virtualize Everything](https://virtualizeeverything.com/2022/05/23/setting-openwrt-in-proxmox-lxc/)\
-+ 
++ [[OpenWrt Wiki] OpenWrt in LXC containers](https://openwrt.org/docs/guide-user/virtualization/lxc)
 
 
 
