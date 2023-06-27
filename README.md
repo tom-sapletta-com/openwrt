@@ -34,6 +34,7 @@ clone partition from USB device
 + [How to use DD to clone a partition off a disk image? - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/73125/how-to-use-dd-to-clone-a-partition-off-a-disk-image)
 
 
+
 ## resize partition
 
 Parted
@@ -83,6 +84,8 @@ reboot
 
 + [LXD - success on OpenWRT (privileged containers) - but problems with unprivileged - LXD - Linux Containers Forum](https://discuss.linuxcontainers.org/t/lxd-success-on-openwrt-privileged-containers-but-problems-with-unprivileged/1729/6)
 + [cvmiller/openwrt-lxd: Directions and script for running OpenWrt on LXD](https://github.com/cvmiller/openwrt-lxd)
++ [Installing OpenWRT In Proxmox LXC – Virtualize Everything](https://virtualizeeverything.com/2022/05/23/setting-openwrt-in-proxmox-lxc/)\
++ 
 
 
 
@@ -94,4 +97,8 @@ Here is how you can reload /etc/network/interfaces.
 ```
 sudo service networking restart
 ```
+
+
+
+
 
