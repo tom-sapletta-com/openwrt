@@ -37,47 +37,7 @@ clone partition from USB device
 
 ## resize partition
 
-Parted
-+ [8 Linux 'Parted' Commands to Create, Resize and Rescue Disk Partitions](https://www.tecmint.com/parted-command-to-create-resize-rescue-linux-disk-partitions/)
-
-[[HOWTO] Resizing root partition on x86 - Installing and Using OpenWrt - OpenWrt Forum](https://forum.openwrt.org/t/howto-resizing-root-partition-on-x86/140631)
-
-```sh
-BOOT="$(sed -n -e "/\s\/boot\s.*$/{s///p;q}" /etc/mtab)"
-DISK="${BOOT%%[0-9]*}"
-PART="$((${BOOT##*[^0-9]}+1))"
-ROOT="${DISK}${PART}"
-LOOP="$(losetup -f)"
-losetup ${LOOP} ${ROOT}
-fsck.ext4 -y -f ${LOOP}
-resize2fs ${LOOP}
-reboot
-```
-
-script: 
-resize.sh
-
-```sh
-#!/bin/sh
-echo -n "$(sed -n -e "/\s\/boot\s.*$/{s///p;q}" /etc/mtab)" > bootdisk.txt
-BOOT=$(cat bootdisk.txt)
-echo $BOOT
-
-DISK=${BOOT%%[0-9]*}
-PART=$((${BOOT##*[^0-9]}+1))
-echo -n "${DISK}" > rootdisk.txt
-echo -n "${PART}" >> rootdisk.txt
-ROOT=$(cat rootdisk.txt)
-echo $ROOT
-
-LOOP=$(losetup -f)
-echo ${LOOP} ${ROOT}
-
-losetup ${LOOP} ${ROOT}
-fsck.ext4 -y -f ${LOOP}
-resize2fs ${LOOP}
-reboot
-```
+[https://github.com/tom-sapletta-com/disk-resize](https://github.com/tom-sapletta-com/disk-resize)
 
 
 ## Virtualisation LXC
